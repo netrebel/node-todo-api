@@ -50,7 +50,7 @@ UserSchema.methods.generateAuthToken = function () {
   user.tokens = user.tokens.concat([{access, token}]);
 
   return user.save().then(() => {
-    console.log('saved with token: ' + token);
+    // console.log('saved with token: ' + token);
     return token;
   });
 };
@@ -112,7 +112,7 @@ UserSchema.pre('save', function (next) {
 
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(user.password, salt, (err, hash) => {
-        console.log('Hashed password: ' + hash);
+        // console.log('Hashed password: ' + hash);
         user.password = hash;
         next();
       });
