@@ -10,6 +10,7 @@ var data = {
   id: 4
 };
 
+//What will be send back to the user ('somesecret' is the salt in this case)
 var token = {
   data,
   hash: SHA256(JSON.stringify(data) + 'somesecret').toString()
